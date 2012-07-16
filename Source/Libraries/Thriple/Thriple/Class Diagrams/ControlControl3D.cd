@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Thriple.Controls.ContentControl3D">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <Members>
+      <Field Name="_backRotation" Hidden="true" />
+      <Field Name="_defaultCameraPrototype" Hidden="true" />
+      <Field Name="_easingEquation" Hidden="true" />
+      <Field Name="_frontRotation" Hidden="true" />
+      <Field Name="_isRotationPending" Hidden="true" />
+      <Field Name="_viewport" Hidden="true" />
+      <Field Name="AnimationLengthProperty" Hidden="true" />
+      <Field Name="BackContentProperty" Hidden="true" />
+      <Field Name="BackContentTemplateProperty" Hidden="true" />
+      <Field Name="CameraPrototypeProperty" Hidden="true" />
+      <Field Name="CameraZoomDestinationProperty" Hidden="true" />
+      <Field Name="CanRotateProperty" Hidden="true" />
+      <Method Name="ContentControl3D" Hidden="true" />
+      <Method Name="CreateCamera" Hidden="true" />
+      <Method Name="CreateCameraAnimation" Hidden="true" />
+      <Property Name="DefaultCameraPrototype" Hidden="true" />
+      <Field Name="EasingModeProperty" Hidden="true" />
+      <Method Name="FindAxisAngleRotation3D" Hidden="true" />
+      <Method Name="GetEasingEquationFromRotationEasingMode" Hidden="true" />
+      <Field Name="IsFrontInViewProperty" Hidden="true" />
+      <Field Name="IsFrontInViewPropertyKey" Hidden="true" />
+      <Field Name="IsOnFrontSideProperty" Hidden="true" />
+      <Field Name="IsOnFrontSidePropertyKey" Hidden="true" />
+      <Field Name="IsRotatingProperty" Hidden="true" />
+      <Field Name="IsRotatingPropertyKey" Hidden="true" />
+      <Method Name="OnAnimationLengthChanged" Hidden="true" />
+      <Method Name="OnApplyTemplate" Hidden="true" />
+      <Method Name="OnCameraPrototypeChanged" Hidden="true" />
+      <Method Name="OnCanExecuteRotateCommand" Hidden="true" />
+      <Method Name="OnCanRotateChanged" Hidden="true" />
+      <Method Name="OnEasingModeChanged" Hidden="true" />
+      <Method Name="OnRequestBringIntoView" Hidden="true" />
+      <Method Name="OnRotateCommandExecuted" Hidden="true" />
+      <Method Name="OnRotationCompleted" Hidden="true" />
+      <Method Name="PrepareForRotation" Hidden="true" />
+      <Field Name="RotationDirectionProperty" Hidden="true" />
+      <Method Name="SetIsOnFrontSide" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>wBAAAIAMYYFREKMAAIGAgBgAFgAgGALBIDASgZQAAAA=</HashCode>
+      <FileName>Controls\ContentControl3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,33 @@
+﻿<UserControl 
+  x:Class="WpfDisciplesBlogRoll3D.BloggerControl"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  >
+  <Button
+    Command="Open"
+    Focusable="False"
+    Width="160" Height="160"
+    >
+    <Button.Template>
+      <ControlTemplate TargetType="Button">
+        <DockPanel Background="#33000000">
+          <Button           
+            Command="Open"
+            CommandParameter="{Binding XPath=@url}"
+            Content="{Binding XPath=@author}"
+            Cursor="Hand"
+            DockPanel.Dock="Top"
+            Focusable="False"
+            Foreground="Black"
+            HorizontalAlignment="Stretch"   
+            ToolTip="Visit blog..."
+            />
+          <Image 
+            Opacity="0.75"
+            Source="{Binding XPath=@pic}" 
+            />
+        </DockPanel>
+      </ControlTemplate>
+    </Button.Template>
+  </Button>
+</UserControl>

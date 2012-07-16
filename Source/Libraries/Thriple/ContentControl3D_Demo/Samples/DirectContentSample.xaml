@@ -1,0 +1,69 @@
+﻿<UserControl
+  x:Class="ContentControl3D_Demo.Samples.DirectContentSample"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:thriple="http://thriple.codeplex.com/"
+  Background="#22000000"
+  >
+  <thriple:ContentControl3D MaxWidth="700" MaxHeight="700">
+
+    <!-- FRONT SIDE -->
+    <thriple:ContentControl3D.Content>
+      <Grid Background="SlateGray" Width="250" Height="250">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- 
+        This Button's Command property is set to  
+        the command that rotates the 3D surface. 
+        -->
+        <Button 
+          Grid.Row="0" 
+          Content="Flip" 
+          Command="thriple:ContentControl3D.RotateCommand"
+          HorizontalAlignment="Right"
+          Margin="10"
+          />
+        <TextBlock
+          Grid.Row="1"
+          Background="LightBlue"
+          Margin="2,0"
+          Text="Front Side"
+          TextAlignment="Center"
+          VerticalAlignment="Center"
+          />
+      </Grid>
+    </thriple:ContentControl3D.Content>
+
+    <!-- BACK SIDE -->
+    <thriple:ContentControl3D.BackContent>
+      <Grid Background="SlateGray" Width="250" Height="250">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- 
+        This Button's Command property is set to  
+        the command that rotates the 3D surface. 
+        -->
+        <Button 
+          Grid.Row="0" 
+          Content="Flip" 
+          Command="thriple:ContentControl3D.RotateCommand"
+          HorizontalAlignment="Right"
+          Margin="10"
+          />
+        <TextBlock
+          Grid.Row="1"
+          Background="LightGreen"
+          Margin="2,0"
+          Text="Back Side"
+          TextAlignment="Center"
+          VerticalAlignment="Center"
+          />
+      </Grid>
+
+    </thriple:ContentControl3D.BackContent>
+  </thriple:ContentControl3D>
+</UserControl>

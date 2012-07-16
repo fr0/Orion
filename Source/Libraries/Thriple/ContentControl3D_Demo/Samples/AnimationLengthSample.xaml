@@ -1,0 +1,67 @@
+﻿<UserControl 
+  x:Class="ContentControl3D_Demo.Samples.AnimationLengthSample"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:thriple="http://thriple.codeplex.com/"
+  >
+  
+  <UserControl.Background>
+    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+      <GradientStop Color="#CC000000" Offset="0" />
+      <GradientStop Color="#44000000" Offset="1" />
+    </LinearGradientBrush>
+  </UserControl.Background>
+  
+  <UserControl.Resources>
+    <DataTemplate x:Key="ImageButtonTemplate">
+      <Button 
+        Command="thriple:ContentControl3D.RotateCommand"
+        Content="{TemplateBinding Content}" 
+        Cursor="Hand" 
+        Width="480" Height="360"
+        >
+        <Button.Template>
+          <ControlTemplate TargetType="{x:Type Button}">
+            <Border BorderBrush="#CC000000" BorderThickness="8" Background="DarkGray" Padding="1">
+              <Image Source="{Binding}" Stretch="Fill" />
+            </Border>
+          </ControlTemplate>
+        </Button.Template>
+      </Button>
+    </DataTemplate>
+  </UserControl.Resources>
+
+  <DockPanel>
+    <Border 
+      DockPanel.Dock="Bottom" 
+      Background="LightGray"
+      BorderBrush="Gray"
+      BorderThickness="1"
+      CornerRadius="6"
+      Margin="3"
+      Padding="3"
+      >
+      <DockPanel>
+        <TextBlock DockPanel.Dock="Left" Text="Animation Length: " VerticalAlignment="Center" />
+        <TextBlock 
+          DockPanel.Dock="Right" 
+          Text="{Binding ElementName=cntCtrl3D, Path=AnimationLength}" 
+          VerticalAlignment="Center" 
+          />
+        <Slider 
+          Minimum="10" Maximum="2000"
+          Value="{Binding ElementName=cntCtrl3D, Path=AnimationLength}" 
+          />
+      </DockPanel>
+    </Border>
+    
+    <thriple:ContentControl3D 
+      x:Name="cntCtrl3D"
+      BackContent="Images/HawaiianBay.jpg"
+      BackContentTemplate="{StaticResource ImageButtonTemplate}"
+      Content="Images/HawaiianBayAtSunrise.jpg" 
+      ContentTemplate="{StaticResource ImageButtonTemplate}"
+      MaxWidth="600" MaxHeight="600"
+      />
+  </DockPanel>
+</UserControl>

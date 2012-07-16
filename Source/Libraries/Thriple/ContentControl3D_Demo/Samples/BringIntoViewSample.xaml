@@ -1,0 +1,42 @@
+﻿<UserControl 
+  x:Class="ContentControl3D_Demo.Samples.BringIntoViewSample"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:thriple="http://thriple.codeplex.com/"
+  >
+  <DockPanel>
+    
+    <StackPanel HorizontalAlignment="Center" DockPanel.Dock="Bottom" Orientation="Horizontal">
+      <Button Content="Call backSideTextBlock.BringIntoView()" Click="OnBringBackSideIntoView" Width="300" Margin="8,4" />
+      <Button Content="Call frontSideTextBlock.BringIntoView()" Click="OnBringFrontSideIntoView" Width="300" Margin="8,4" />
+    </StackPanel>
+
+    <thriple:ContentControl3D x:Name="cntCtrl3D" Content="Front Side" MaxWidth="600" MaxHeight="600">
+      <thriple:ContentControl3D.ContentTemplate>
+        <DataTemplate>
+          <Grid>
+            <TextBlock 
+              x:Name="frontSideTextBlock" 
+              FontSize="30" 
+              HorizontalAlignment="Center" 
+              Text="{Binding}" 
+              VerticalAlignment="Center"               
+              />
+          </Grid>
+        </DataTemplate>
+      </thriple:ContentControl3D.ContentTemplate>
+      
+      <thriple:ContentControl3D.BackContent>
+        <Grid>
+          <TextBlock 
+            x:Name="backSideTextBlock" 
+            FontSize="30"
+            VerticalAlignment="Center" 
+            Text="Back Side" 
+            HorizontalAlignment="Center"              
+            />
+        </Grid>
+      </thriple:ContentControl3D.BackContent>
+    </thriple:ContentControl3D>
+  </DockPanel>
+</UserControl>

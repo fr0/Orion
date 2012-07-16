@@ -1,0 +1,65 @@
+﻿<!--
+  This file contains various configurations of Panel3D, that show
+  how modifying its Camera and ItemLayoutDirection properties can
+  drastically alter the 3D scene it displays.
+-->
+  
+<ResourceDictionary 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:thriple="http://thriple.codeplex.com/"
+  >
+  <ItemsPanelTemplate x:Key="Default">
+    <thriple:Panel3D DefaultAnimationLength="0:0:0.5" />
+  </ItemsPanelTemplate>
+
+  <ItemsPanelTemplate x:Key="Down.Right">
+    <thriple:Panel3D 
+      DefaultAnimationLength="0:0:0.5"
+      ItemLayoutDirection="1.15, -1.55, -7.8"
+      MaxVisibleModels="6"
+      >
+      <thriple:Panel3D.Camera>
+        <PerspectiveCamera
+          LookDirection="-2, 0, -10" 
+          Position="+3, -1.5, 3" 
+          UpDirection="0, 1, 0" 
+          />
+      </thriple:Panel3D.Camera>
+    </thriple:Panel3D>
+  </ItemsPanelTemplate>
+
+
+  <ItemsPanelTemplate x:Key="Across.Right">
+    <thriple:Panel3D 
+      DefaultAnimationLength="0:0:1"
+      ItemLayoutDirection="3.8, .55, -6.831"
+      MaxVisibleModels="14"
+      >
+      <thriple:Panel3D.Camera>
+        <PerspectiveCamera
+          LookDirection="3, 0.8, -10" 
+          Position="+1.75, 0, 5" 
+          UpDirection="0, 1, 0" 
+          />
+      </thriple:Panel3D.Camera>
+    </thriple:Panel3D>
+  </ItemsPanelTemplate>
+
+
+  <ItemsPanelTemplate x:Key="Across.Left">
+    <thriple:Panel3D 
+      DefaultAnimationLength="0:0:0.5"
+      ItemLayoutDirection="-4, .05, -4.4"
+      >
+      <thriple:Panel3D.Camera>
+        <PerspectiveCamera
+          LookDirection="-2.3, 0.8, -10" 
+          Position="-3, 0.2, 15" 
+          UpDirection="0, 1, 0" 
+          />
+      </thriple:Panel3D.Camera>
+    </thriple:Panel3D>
+  </ItemsPanelTemplate>
+
+</ResourceDictionary>

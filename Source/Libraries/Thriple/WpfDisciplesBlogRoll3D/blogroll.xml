@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<blogs>
+  
+  <blog
+    author="Dr. WPF"
+    bio="http://wpfdisciples.wordpress.com/bios/dr-wpf/"
+    pic="images/drwpf.png"
+    url="http://www.drwpf.com/blog/"
+    location="the USA"
+    />
+
+  <blog
+    author="Josh Smith"
+    bio="http://wpfdisciples.wordpress.com/bios/josh-smith/"
+    pic="images/josh.jpg"
+    url="http://joshsmithonwpf.wordpress.com"
+    location="the USA"
+    />
+
+  <blog
+    author="Karl Shifflett"
+    bio="http://wpfdisciples.wordpress.com/bios/karl-shifflett/"
+    pic="images/karl.jpg"
+    url="http://karlshifflett.wordpress.com/"
+    location="the USA"
+    />
+
+  <blog
+    author="Marlon Grech"
+    bio="http://wpfdisciples.wordpress.com/bios/marlon-grech/"
+    pic="images/marlon.jpg"
+    url="http://marlongrech.wordpress.com/"
+    location="Malta"
+    />
+
+  <blog
+    author="Mike Brown"
+    bio="http://wpfdisciples.wordpress.com/bios/mike-brown/"
+    pic="images/mike.jpg"
+    url="http://mbrownchicago.spaces.live.com/"
+    location="the USA"
+    />
+
+  <blog
+    author="Rudi Grobler"
+    bio="http://wpfdisciples.wordpress.com/bios/rudi-grobler/"
+    pic="images/rudi.jpg"
+    url="http://dotnet.org.za/rudi/"
+    location="South Africa"
+    />
+
+  <blog
+   author="Sacha Barber"
+   bio="http://wpfdisciples.wordpress.com/bios/sacha-barber/"
+   pic="images/sacha.jpg"
+   url="http://sachabarber.net/"
+   location="England"
+   />
+  
+  <blog
+    author="Pavan Podila"
+    bio="http://wpfdisciples.wordpress.com/bios/pavan-podila/"
+    pic="images/pavan.jpg"
+    url="http://blog.pixelingene.com"
+    location="the USA"
+    />
+
+  <blog
+    author="Bill Kempf"
+    bio="http://wpfdisciples.wordpress.com/bios/bill-kempf/"
+    pic="images/bill.jpg"
+    url="http://wekempf.spaces.live.com/default.aspx"
+    location="the USA"
+    />
+
+  <blog
+    author="Laurent Bugnion"
+    bio="http://wpfdisciples.wordpress.com/bios/laurent-bugnion/"
+    pic="images/laurent.jpg"
+    url="http://blog.galasoft.ch/"
+    location="Switzerland"
+    />
+  
+  <blog
+    author="Brennon Williams"
+    bio="http://wpfdisciples.wordpress.com/bios/brennon-williams/"
+    pic="images/brennon.bmp"
+    url="http://x-coders.com/blogs/sneaky/default.aspx"
+    location="the USA"
+    />
+
+  <blog
+    author="WPF Disciples"
+    bio="http://wpfdisciples.wordpress.com/bios/"
+    pic="images/disciples.png"
+    url="http://wpfdisciples.wordpress.com/"
+    location="some Solar System"
+    />
+
+</blogs>

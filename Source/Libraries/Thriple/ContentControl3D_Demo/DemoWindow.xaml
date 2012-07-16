@@ -1,0 +1,89 @@
+﻿<Window 
+  x:Class="ContentControl3D_Demo.DemoWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:samples="clr-namespace:ContentControl3D_Demo.Samples"
+  Title="ContentControl3D Demo" 
+  Width="900" Height="900" 
+  WindowStartupLocation="CenterScreen"
+  >
+  <Grid Background="#11000000">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <TabControl x:Name="tabControl" Grid.Row="0">
+      <TabItem Header="Direct Content">
+        <samples:DirectContentSample />
+      </TabItem>
+
+      <TabItem Header="Content Templates">
+        <samples:ContentTemplatesSample />
+      </TabItem>
+
+      <TabItem Header="Binding to a ViewModel">
+        <samples:BindingToViewModelSample />
+      </TabItem>
+
+      <TabItem Header="Animation Length">
+        <samples:AnimationLengthSample />
+      </TabItem>
+
+      <TabItem Header="Rotation Direction">
+        <samples:RotationDirectionSample />
+      </TabItem>
+
+      <TabItem Header="Easing Modes">
+        <samples:EasingModesSample />
+      </TabItem>
+
+      <TabItem Header="Zoom Destination">
+        <samples:ZoomDestinationSample />
+      </TabItem>
+
+      <TabItem Header="Bring Into View">
+        <samples:BringIntoViewSample />
+      </TabItem>
+
+      <TabItem Header="Property Explorer">
+        <samples:PropertyExplorerSample />
+      </TabItem>
+    </TabControl>
+
+    <GroupBox 
+      Grid.Row="1" 
+      BorderThickness="0" 
+      FontWeight="Bold"
+      Header="Sample Description" 
+      Margin="3" 
+      MinHeight="30"
+      >
+      <Border BorderBrush="Gray" BorderThickness="0.5"  CornerRadius="8" Margin="2,3">
+        <Border.Background>
+          <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#22000000" Offset="0" />
+            <GradientStop Color="#11000000" Offset="0.6" />
+            <GradientStop Color="#22000000" Offset="1" />
+          </LinearGradientBrush>
+        </Border.Background>
+        <Border  CornerRadius="8" Padding="4,2">
+          <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+              <GradientStop Color="#CCFFFFFF" Offset="0" />
+              <GradientStop Color="#44FFFFFF" Offset="0.4" />
+              <GradientStop Color="Transparent" Offset="1" />
+            </LinearGradientBrush>
+          </Border.Background>
+          <TextBlock 
+            FontWeight="Normal" 
+            FontSize="13"
+            Text="{Binding ElementName=tabControl, Path=SelectedItem.Content.Description}"
+            TextWrapping="Wrap"
+            />
+        </Border>
+      </Border>
+
+    </GroupBox>
+  </Grid>
+</Window>

@@ -1,0 +1,121 @@
+﻿<Window 
+  x:Class="WpfDisciplesBlogRoll3D.BlogRollWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:thriple="http://thriple.codeplex.com/"
+  xmlns:local="clr-namespace:WpfDisciplesBlogRoll3D"
+  Icon="images/search.png"
+  Title="WPF Disciples :: Blogroll"
+  Width="900" Height="700"
+  WindowStartupLocation="CenterScreen"
+  >
+  <Window.Background>
+    <ImageBrush ImageSource="images/background.jpg" />
+  </Window.Background>
+
+  <Window.CommandBindings>
+    <CommandBinding 
+      Command="Open" 
+      CanExecute="Open_CanExecute" 
+      Executed="Open_Executed" 
+      />
+  </Window.CommandBindings>
+
+  <DockPanel Margin="4">
+    <DockPanel.DataContext>
+      <XmlDataProvider Source="blogroll.xml" XPath="blogs/blog" />
+    </DockPanel.DataContext>
+
+    <!-- NAVIGATION BUTTONS -->
+    <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0,0,0,4" Orientation="Horizontal">
+      <StackPanel.Resources>
+        <ResourceDictionary Source="GelButtonStyle.xaml" />
+      </StackPanel.Resources>
+
+      <RepeatButton Click="PageBackButtonClicked" Content="|&lt;&lt;&lt;" Interval="700" />
+      <Rectangle Width="10" />
+      <RepeatButton Click="MoveBackButtonClicked" Content="|&lt;" Interval="700" />
+      <Rectangle Width="10" />
+      <RepeatButton Click="MoveForwardButtonClicked" Content="&gt;|" Interval="700" />
+      <Rectangle Width="10" />
+      <RepeatButton Click="PageForwardButtonClicked" Content="&gt;&gt;&gt;|" Interval="700" />
+    </StackPanel>
+
+    <!-- BLOGGER IMAGE CAROUSEL -->
+    <ListBox 
+      x:Name="listBox" 
+      Background="Transparent" 
+      BorderBrush="Transparent" 
+      ItemsSource="{Binding}" 
+      Focusable="False" 
+      IsSynchronizedWithCurrentItem="True"
+      >
+
+      <!-- 
+        Tell the ItemsControl to use our custom
+        3D layout panel to arrage its items.
+      -->
+      <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+          <thriple:Panel3D 
+            AutoAdjustOpacity="False"
+            AllowTransparency="True"
+            ItemsHostLoaded="OnPanel3DLoaded"   
+            MaxVisibleModels="8" 
+            />
+        </ItemsPanelTemplate>
+      </ListBox.ItemsPanel>
+
+      <!-- Place the content of each ListBoxItem in a ContentControl3D. -->
+      <ListBox.ItemContainerStyle>
+        <Style TargetType="{x:Type ListBoxItem}">
+          <EventSetter 
+            Event="Unselected" 
+            Handler="OnListBoxItemUnselected" 
+            />
+          <Setter Property="Width" Value="200" />
+          <Setter Property="Height" Value="200" />
+          <Setter Property="Template">
+            <Setter.Value>
+              
+              <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                <!-- 
+                This Border element is necessary to prevent the 
+                control from being skewed during animation. 
+                -->
+                <Border BorderThickness="1" BorderBrush="Transparent">
+                  <thriple:ContentControl3D 
+                    AnimationLength="650" 
+                    CameraZoomDestination="-0.25,0,2"
+                    EasingMode="RoundhouseKick"
+                    >
+                    <!-- Configure the scene's camera. -->
+                    <thriple:ContentControl3D.CameraPrototype>
+                      <PerspectiveCamera
+                        FieldOfView="90"
+                        LookDirection="0,0,-1"
+                        Position="0,0,1"                        
+                        />
+                    </thriple:ContentControl3D.CameraPrototype>
+                    
+                    <!-- Show a BloggerControl on the front side. -->
+                    <thriple:ContentControl3D.Content>
+                      <local:BloggerControl Width="160" Height="160" />
+                    </thriple:ContentControl3D.Content>
+
+                    <!-- Show a BloggerDetailsControl on the back side. -->
+                    <thriple:ContentControl3D.BackContent>
+                      <local:BloggerDetailsControl Width="160" Height="160" />
+                    </thriple:ContentControl3D.BackContent>                    
+                  </thriple:ContentControl3D>
+                </Border>
+              </ControlTemplate>
+              
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </ListBox.ItemContainerStyle>
+      
+    </ListBox>
+  </DockPanel>
+</Window>

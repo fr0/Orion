@@ -1,0 +1,105 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:controls="clr-namespace:Thriple.Controls"
+  xmlns:internal="clr-namespace:Thriple.Controls.Internal"
+  >
+  <Style TargetType="{x:Type controls:ContentControl3D}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type controls:ContentControl3D}">
+          <ControlTemplate.Resources>
+            <internal:ContentValueConverter x:Key="ContentConv" />
+          </ControlTemplate.Resources>
+          <Border 
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            >
+            <Viewport3D x:Name="PART_Viewport">
+              <Viewport3D.Children>
+
+                <!-- LIGHT SOURCE -->
+                <ModelVisual3D>
+                  <ModelVisual3D.Content>
+                    <Model3DGroup>
+                      <DirectionalLight Color="#444" Direction="0,0,-1" />
+                      <AmbientLight Color="#BBB" />
+                    </Model3DGroup>
+                  </ModelVisual3D.Content>
+                </ModelVisual3D>
+
+                <!-- BACK CONTENT -->
+                <Viewport2DVisual3D>
+                  <Viewport2DVisual3D.Geometry>
+                    <MeshGeometry3D
+                     TriangleIndices="0,1,2 2,3,0"
+                     TextureCoordinates="0,1 1,1 1,0 0,0"
+                     Positions="-1,-1,0 1,-1,0 1,1,0 -1,1,0" 
+                     />
+                  </Viewport2DVisual3D.Geometry>
+
+                  <Viewport2DVisual3D.Transform>
+                    <RotateTransform3D>
+                      <RotateTransform3D.Rotation>
+                        <AxisAngleRotation3D Angle="180" />
+                      </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                  </Viewport2DVisual3D.Transform>
+
+                  <Viewport2DVisual3D.Material>
+                    <DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White" />
+                  </Viewport2DVisual3D.Material>
+
+                  <Viewport2DVisual3D.Visual>
+                    <Border BorderBrush="Transparent" BorderThickness="1">
+                      <ContentPresenter 
+                        x:Name="PART_BackContentPresenter"
+                        Content="{TemplateBinding BackContent, Converter={StaticResource ContentConv}, ConverterParameter=BACK}" 
+                        ContentTemplate="{TemplateBinding BackContentTemplate}" 
+                        />
+                    </Border>
+                  </Viewport2DVisual3D.Visual>
+                </Viewport2DVisual3D>
+
+                <!-- FRONT CONTENT -->
+                <Viewport2DVisual3D>
+                  <Viewport2DVisual3D.Geometry>
+                    <MeshGeometry3D
+                     TriangleIndices="0,1,2 2,3,0"
+                     TextureCoordinates="0,1 1,1 1,0 0,0"
+                     Positions="-1,-1,0 1,-1,0 1,1,0 -1,1,0" 
+                     />
+                  </Viewport2DVisual3D.Geometry>
+
+                  <Viewport2DVisual3D.Transform>
+                    <RotateTransform3D>
+                      <RotateTransform3D.Rotation>
+                        <AxisAngleRotation3D Angle="0" />
+                      </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                  </Viewport2DVisual3D.Transform>
+
+                  <Viewport2DVisual3D.Material>
+                    <DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White" />
+                  </Viewport2DVisual3D.Material>
+
+                  <Viewport2DVisual3D.Visual>
+                    <Border BorderBrush="Transparent" BorderThickness="1">
+                      <ContentPresenter 
+                        x:Name="PART_FrontContentPresenter"
+                        Content="{TemplateBinding Content, Converter={StaticResource ContentConv}, ConverterParameter=FRONT}" 
+                        ContentTemplate="{TemplateBinding ContentTemplate}" 
+                        />
+                    </Border>
+                  </Viewport2DVisual3D.Visual>
+                </Viewport2DVisual3D>
+
+              </Viewport3D.Children>
+            </Viewport3D>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

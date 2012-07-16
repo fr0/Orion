@@ -1,0 +1,24 @@
+﻿<!-- 
+To show this Window, open App.xaml and set StartupUri="DirectWindow.xaml" 
+-->  
+<Window 
+  x:Class="Panel3D_Demo.DirectWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+  Title="Panel3D with Direct Content Demo" 
+  Height="600" Width="800">
+  <Grid>
+    <thriple:Panel3D xmlns:thriple="http://thriple.codeplex.com/">
+      <TextBox 
+        AcceptsReturn="True" 
+        MaxLines="8"
+        Text="Howdy"
+        Width="100" Height="100"  
+        />
+      
+      <Button Width="100" Height="100">Destroy Universe</Button>
+      
+      <CheckBox IsChecked="True">Is this cool?</CheckBox>               
+    </thriple:Panel3D>
+  </Grid>
+</Window>

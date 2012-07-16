@@ -1,0 +1,72 @@
+﻿<UserControl 
+  x:Class="ContentControl3D_Demo.Samples.BindingToViewModelSample_BackView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  >
+  <UserControl.Resources>
+    <DataTemplate DataType="{x:Type ValidationError}">
+      <ContentPresenter 
+        Content="{Binding Path=ErrorContent}"
+        TextBlock.Foreground="Red"
+        TextBlock.FontStyle="Italic"
+        />
+    </DataTemplate>
+  </UserControl.Resources>
+
+  <Border BorderBrush="Black" BorderThickness="1" Padding="4">
+
+    <WrapPanel Orientation="Horizontal" Margin="8">
+      
+      <!-- FIRST NAME -->
+      <StackPanel Width="190">
+        <TextBlock Text="First name" FontWeight="Bold" />
+        <TextBox 
+          x:Name="txtFirstName"
+          HorizontalAlignment="Left"
+          Margin="0,4"
+          Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+          Width="150" 
+          />
+        <ContentPresenter Content="{Binding ElementName=txtFirstName, Path=(Validation.Errors).CurrentItem}" Height="20" />
+      </StackPanel>
+
+      <!-- LAST NAME -->
+      <StackPanel Width="180">
+        <TextBlock Text="Last name" FontWeight="Bold" />
+        <TextBox 
+          x:Name="txtLastName"
+          HorizontalAlignment="Left"
+          Margin="0,4"
+          Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+          Width="150" 
+          />
+        <ContentPresenter Content="{Binding ElementName=txtLastName, Path=(Validation.Errors).CurrentItem}" />
+      </StackPanel>
+
+      <!-- AGE -->
+      <StackPanel Width="190">
+        <TextBlock Text="Age" FontWeight="Bold" />
+        <TextBox 
+          x:Name="txtAge"
+          HorizontalAlignment="Left"
+          Margin="0,4"
+          Text="{Binding Path=Age, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+          Width="150" 
+          />
+        <ContentPresenter Content="{Binding ElementName=txtAge, Path=(Validation.Errors).CurrentItem}" />
+      </StackPanel>
+
+      <!-- FAVORITE COMPOSER -->
+      <StackPanel Width="180">
+        <TextBlock Text="Favorite Composer" FontWeight="Bold" />
+        <TextBox 
+          x:Name="txtFavoriteComposer"
+          HorizontalAlignment="Left"
+          Margin="0,4"
+          Text="{Binding Path=FavoriteComposer, UpdateSourceTrigger=PropertyChanged}" 
+          Width="150" 
+          />
+      </StackPanel>
+    </WrapPanel>
+  </Border>
+</UserControl>

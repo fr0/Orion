@@ -1,0 +1,62 @@
+﻿<UserControl 
+  x:Class="ContentControl3D_Demo.Samples.BindingToViewModelSample"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:thriple="http://thriple.codeplex.com/"
+  xmlns:local="clr-namespace:ContentControl3D_Demo.Samples"
+  >
+  <thriple:ContentControl3D 
+    CanRotate="{Binding Path=IsValid}"
+    Content="{Binding}"
+    BackContent="{Binding}"
+    MinWidth="650" MinHeight="650" 
+    MaxWidth="650" MaxHeight="650" 
+    >
+    <thriple:ContentControl3D.Resources>
+      <DataTemplate x:Key="FrontSideTemplate">
+        <local:BindingToViewModelSample_FrontView />
+      </DataTemplate>
+
+      <DataTemplate x:Key="BackSideTemplate">
+        <local:BindingToViewModelSample_BackView />
+      </DataTemplate>
+
+      <!-- 
+      This template renders both sides of the ContentControl3D.
+      -->
+      <DataTemplate DataType="{x:Type local:PersonViewModel}">
+        <Grid Width="400" Height="400" >
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+
+          <ContentPresenter 
+            x:Name="cp" 
+            Grid.Row="0"
+            ContentSource="Content" 
+            ContentTemplate="{StaticResource FrontSideTemplate}"
+            />
+          <Button 
+            Grid.Row="1" 
+            Command="thriple:ContentControl3D.RotateCommand" 
+            Content=">>"
+            HorizontalAlignment="Right"
+            />
+        </Grid>
+        <DataTemplate.Triggers>
+          <Trigger
+            Property="thriple:ContentControl3D.IsOnFrontSide" 
+            Value="False"
+            >
+            <Setter 
+              TargetName="cp" 
+              Property="ContentTemplate" 
+              Value="{StaticResource BackSideTemplate}" 
+              />
+          </Trigger>
+        </DataTemplate.Triggers>
+      </DataTemplate>
+    </thriple:ContentControl3D.Resources>
+  </thriple:ContentControl3D>
+</UserControl>
